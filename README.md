@@ -50,4 +50,7 @@ Steps to Send a notification:
     - create group: http://localhost:3009/api-docs/#/User/createGroup
     - add users to group: http://localhost:3009/api-docs/#/User/addUsersToGroup
     - create notification: http://localhost:3009/api-docs/#/Notification/createNotification
-  
+
+DB SCHEMA
+  ![DB SCHEMA](https://user-images.githubusercontent.com/11231159/127750784-687e2e55-0a1e-4139-8c4d-4b6d065d8dce.png)
+
