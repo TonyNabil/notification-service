@@ -16,14 +16,14 @@ to start this project :
       - optional: for unit testing run: npm run test
 
   - approach 2:
-    prerequisites:
-      install docker     
-      install docker-compose    
+    - prerequisites:
+      - install docker     
+      - install docker-compose    
     
-    to run this project:
-      clone this repo
-      run docker-compose build
-      run docker-compose up
+    - to run this project:
+      - clone this repo
+      - run docker-compose build
+      - run docker-compose up
     
  
 API documnetation:
@@ -31,11 +31,11 @@ API documnetation:
   
 
 Steps to Send a notification:
-   for specific user:
+  - for specific user:
     - create user: http://localhost:3009/api-docs/#/User/createUser
     - create notification: http://localhost:3009/api-docs/#/Notification/createNotification  
   
-  for group of users:
+  - for group of users:
     - create user: http://localhost:3009/api-docs/#/User/createUser
     - create group: http://localhost:3009/api-docs/#/User/createGroup
     - add users to group: http://localhost:3009/api-docs/#/User/addUsersToGroup
