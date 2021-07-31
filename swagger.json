@@ -1,0 +1,353 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "NOTIFICATIONS",
+        "description": "NOTIFICATIONS APIs"
+    },
+    "host": "localhost:3009",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "User",
+            "description": "API for Users in the system"
+        },
+        {
+            "name": "Notification",
+            "description": "API for Notifications in the system"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/v1/user": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "create user",
+                "description": "Create new user in system",
+                "operationId": "createUser",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "create user object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid operation"
+                    },
+                    "500": {
+                        "description": "server error"
+                    }
+                },
+                "x-swagger-router-controller": "userController"
+            }
+        },
+        "/v1/group": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "create group of users",
+                "description": "create new group of users in system",
+                "operationId": "createGroup",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "create group object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/group"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid operation"
+                    },
+                    "500": {
+                        "description": "server error"
+                    }
+                },
+                "x-swagger-router-controller": "userController"
+            }
+        },
+        "/v1/userGroup": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "add users to group",
+                "description": "add users to existing group",
+                "operationId": "addUsersToGroup",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add users to group object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userGroup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid operation"
+                    },
+                    "500": {
+                        "description": "server error"
+                    }
+                },
+                "x-swagger-router-controller": "userController"
+            }
+        },
+        "/v1/notification": {
+            "post": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "create notification",
+                "description": "create and send notifcation to user or group",
+                "operationId": "createNotification",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "create notification object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/notification"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid operation"
+                    },
+                    "500": {
+                        "description": "server error"
+                    }
+                },
+                "x-swagger-router-controller": "userController"
+            },
+            "get": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "get notification",
+                "description": "list all created notifcations",
+                "operationId": "notification",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid operation"
+                    },
+                    "500": {
+                        "description": "server error"
+                    }
+                },
+                "x-swagger-router-controller": "userController"
+            }
+        }
+    },
+    "definitions": {
+        "user": {
+            "type": "object",
+            "required": [
+                "name",
+                "phone",
+                "email",
+                "language"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string",
+                    "enum": [
+                        "en",
+                        "ar",
+                        "fr"
+                    ]
+                }
+            },
+            "example": {
+                "name": "Tony",
+                "phone": "01273478941",
+                "email": "anthony.nabil@hotmail.com",
+                "language": "en"
+            }
+        },
+        "group": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "name": "SW Engineers"
+            }
+        },
+        "userGroup": {
+            "type": "object",
+            "required": [
+                "userIds",
+                "groupId"
+            ],
+            "properties": {
+                "userIds": {
+                    "type": "array"
+                },
+                "groupId": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "groupId": "60ffcd9b28cc77557caced7e",
+                "userIds": [
+                    "61017d7c3ebd884138dc3297",
+                    "60ffcd9b28cc77557caced7a"
+                ]
+            }
+        },
+        "notification": {
+            "required": [
+                "notificationSubject",
+                "notificationBody",
+                "notificationType"
+            ],
+            "properties": {
+                "notificationSubject": {
+                    "type": "object"
+                },
+                "notificationBody": {
+                    "type": "object"
+                },
+                "notificationType": {
+                    "type": "srting",
+                    "enum": [
+                        "SMS",
+                        "EMAIL",
+                        "PUSH_NOTIFICATION"
+                    ]
+                },
+                "userId": {
+                    "type": "string"
+                },
+                "groupId": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "notificationSubject": {
+                    "en": "Hello!",
+                    "ar": "مرحبا!",
+                    "fr": "Bonjour!"
+                },
+                "notificationBody": {
+                    "en": "Hello!",
+                    "ar": "مرحبا!",
+                    "fr": "Bonjour!"
+                },
+                "notificationType": "PUSH_NOTIFICATION",
+                "userId": "61017d7c3ebd884138dc3297",
+                "groupId": "61041302f13f911739b91868"
+            }
+        },
+        "User": {
+            "required": [
+                "name",
+                "_id",
+                "companies"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                },
+                "isPublic": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "books": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "amount": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                "companies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
