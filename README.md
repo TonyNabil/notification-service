@@ -3,17 +3,17 @@ Notification service for sending Notifications (SMS/Email/Push Notification) to 
 
 to start this project :
   - approach 1:
-    prerequisites:
-      install node     https://nodejs.org/en/download/
-      install mongo    https://docs.mongodb.com/manual/administration/install-community/
-      install redis    https://redis.io/download
+    - prerequisites:
+      - install node     https://nodejs.org/en/download/
+      - install mongo    https://docs.mongodb.com/manual/administration/install-community/
+      - install redis    https://redis.io/download
       
-    to run this project:
-      clone this repo
-      run: 'npm i'
-      run: npm run build-ts  "you need typescript installed globally to run this command"
-      run: npm run start
-      optional: for unit testing run: npm run test
+    - to run this project:
+      - clone this repo
+      - run: 'npm i'
+      - run: npm run build-ts  "you need typescript installed globally to run this command"
+      - run: npm run start
+      - optional: for unit testing run: npm run test
 
   - approach 2:
     prerequisites:
