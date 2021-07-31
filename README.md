@@ -1,6 +1,16 @@
 # notification-service
 Notification service for sending Notifications (SMS/Email/Push Notification) to specifec user or group of users.
 
+technologies:
+  - node js
+  - express
+  - mongodb
+  - redis
+  - bullmq
+  - jest
+  - swagger
+  - docker
+
 to start this project :
   - approach 1:
     - prerequisites:
